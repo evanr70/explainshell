@@ -37,6 +37,7 @@ def explain(command: str) -> None:
 
     if content.status_code != SUCCESS_CODE:
         print("Could not connect to explainshell.com")
+        return
 
     soup = BeautifulSoup(content.content, "html.parser")
     if soup.h4 is not None and soup.h4.text == "missing man page":
